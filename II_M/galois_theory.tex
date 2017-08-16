@@ -55,7 +55,7 @@ Moreover, many properties of (intermediate) field extensions correspond to analo
 Nowadays, Galois theory is an important field in mathematics, and finds its applications in number theory, algebraic geometry and even cryptography.
 
 \section{Solving equations}
-Galois theory grew of of the desire to \emph{solve equations}. In particular, to solve polynomial equations. To begin with, we will come up with general solutions to polynomial equations of up to degree $4$. However, this is the best we can do, as we will later show in the course --- there is no general solution to polynomial equations of degree $5$ or above.
+Galois theory grew out of the desire to \emph{solve equations}. In particular, to solve polynomial equations. To begin with, we will come up with general solutions to polynomial equations of up to degree $4$. However, this is the best we can do, as we will later show in the course --- there is no general solution to polynomial equations of degree $5$ or above.
 
 Before we start, we will define some notations that we will frequently use.
 
@@ -265,7 +265,7 @@ If $L/K$ is a field extension and $\alpha \in L$ is algebraic, then by definitio
 
 Since $K$ is a field, $K[t]$ is a PID (principal ideal domain). This, by definition, implies we can find some (monic) $P_\alpha \in K[t]$ such that $I_\alpha = \bra P_\alpha\ket$. In other words, every element of $I_\alpha$ is just a multiple of $P_\alpha$.
 \begin{defi}[Minimal polynomial]
-  Let $L/K$ be a field extension, $\alpha \in L$. The \emph{minimal polynomial} of $\alpha$ over $K$ is a monic polynomial $P_\alpha$ such that $I_\alpha = \bra P_\alpha\ket$.
+  Let $L/K$ be a field extension, $\alpha \in L$ algebraic over $K$. The \emph{minimal polynomial} of $\alpha$ over $K$ is a monic polynomial $P_\alpha$ such that $I_\alpha = \bra P_\alpha\ket$.
 \end{defi}
 
 \begin{eg}\leavevmode
@@ -281,7 +281,7 @@ It should be intuitively obvious that by virtue of being ``minimal'', the minima
 \end{prop}
 
 \begin{proof}
-  Assume that $P_\alpha = QR$ in $K[t]$. So $0 = P_\alpha(\alpha) = Q(\alpha) R(\alpha)$. So $Q(\alpha) = 0$ or $R(\alpha) = 0$. Say $Q(\alpha) = 0$. So $Q\in I_\alpha$. So $Q$ is a multiple of $P_\alpha$. However, we also know that $P_\alpha$ is a multiple of $Q_\alpha$. This is possible only if $R$ is a unit in $K[t]$, i.e.\ $R\in K$. So $P_\alpha$ is irreducible.
+  Assume that $P_\alpha = QR$ in $K[t]$. So $0 = P_\alpha(\alpha) = Q(\alpha) R(\alpha)$. So $Q(\alpha) = 0$ or $R(\alpha) = 0$. Say $Q(\alpha) = 0$. So $Q\in I_\alpha$. So $Q$ is a multiple of $P_\alpha$. However, we also know that $P_\alpha$ is a multiple of $Q$. This is possible only if $R$ is a unit in $K[t]$, i.e.\ $R\in K$. So $P_\alpha$ is irreducible.
 \end{proof}
 It should also be clear that if $f$ is irreducible and $f(\alpha) = 0$, then $f$ is the minimal polynomial. Often, it is the irreducibility of $P_\alpha$ that is important.
 
@@ -659,7 +659,7 @@ Recall that if $K\subseteq F$ is a field extension, then for any $\alpha\in F$ w
 \end{proof}
 
 \begin{defi}[Splitting field]
-  Let $L/K$ be a field extensions, $f\in K[t]$. We say $f$ \emph{splits} over $L$ if we can factor $f$ as
+  Let $L/K$ be a field extension, $f\in K[t]$. We say $f$ \emph{splits} over $L$ if we can factor $f$ as
   \[
     f = a(t - \alpha_1)\cdots (t - \alpha_n)
   \]
@@ -701,7 +701,7 @@ More generally, we can show that every polynomial has a splitting field, and thi
 
       So suppose $F\not= L$. We will try to produce a larger $\tilde{F}$ with $K$-isomorphism $\tilde{F} \to \tilde{F}' \subseteq L'$.
 
-      Since $F\not= L$, we know that there is some $\alpha \in \Root_f(L)$ such that $\alpha\not\in F$. Then there is some irreducible $g\in K[t]$ with $\deg g > 0$ such that $g(\alpha) = 0$ and $g \mid f$. Say $f = gh$.
+      Since $F\not= L$, we know that there is some $\alpha \in \Root_f(L)$ such that $\alpha\not\in F$. Then there is some irreducible $g\in F[t]$ with $\deg g > 0$ such that $g(\alpha) = 0$ and $g \mid f$. Say $f = gh$.
 
       Now we know there is an isomorphism $F[t]/\bra g\ket \to F(\alpha)$ by $\bar t \mapsto \alpha$. The isomorphism $\psi: F \to F'$ extends to a isomorphism $\mu: F[t] \to F'[t]$. Then since the coefficients of $f$ are in $K$, we have $f = \mu(f) = \mu(g)\mu(h)$. So $\mu(g) \mid f$ in $F'[t]$. Since $g$ is irreducible in $F[t]$, $\mu(g)$ is irreducible in $F'[t]$. So there is some $\alpha' \in \Root_{\mu(g)}(L') \subseteq \Root_f(L')$ and isomorphism $F'[t]/\bra \mu(g)\ket \to F'(\alpha')$.
 
@@ -749,7 +749,7 @@ Before we prove our next theorem, we need the following technical lemma:
   \[
     \mathcal{P} = \{I: I\text{ is an ideal of }R, I \not= R\}.
   \]
-  If $I_1 \subseteq I_2 \subseteq \cdots$ is any chain of $I_i \in P$, then $I = \bigcup I_i \in \mathcal{P}$. By Zorn's lemma, there is a maximal element of $\mathcal{P}$ (containing $I$). So $R$ has at least one maximal ideal (containing $I$).
+  If $I_1 \subseteq I_2 \subseteq \cdots$ is any chain of $I_i \in \mathcal{P}$, then $I = \bigcup I_i \in \mathcal{P}$. By Zorn's lemma, there is a maximal element of $\mathcal{P}$ (containing $I$). So $R$ has at least one maximal ideal (containing $I$).
 \end{proof}
 
 \begin{thm}[Existence of algebraic closure]
@@ -800,7 +800,7 @@ Before we prove our next theorem, we need the following technical lemma:
     &= f_i - \prod_{j = 1}^{\deg f_i} (t - \alpha_{i, j})\\
     &= 0
   \end{align*}
-  So $\phi(b_{(f_i, \ell_i)}) = 0$ as $b_{(f_i, \ell_i)}$ is a coefficient of $f_i$.
+  So $\phi(b_{(f_i, \ell_i)}) = 0$ as $b_{(f_i, \ell_i)}$ is a coefficient of $\tilde{f}_i$.
 
   Now we apply $\phi$ to $(*)$ to obtain
   \[
@@ -846,9 +846,9 @@ This is the same proof as the proof that the splitting field is unique --- given
   \]
   Then $(F, \psi) \in \mathcal{H}$. Then applying Zorn's lemma, there is a maximal element of $\mathcal{H}$, say $(F, \psi)$.
 
-  Finally, we have to prove that $F = L$, and that $\psi(L) = L'$. Suppose $F \not= L$. Then we attempt to produce a larger $\tilde{F}$ and a $K$-isomorphism $\tilde{F} \to \tilde{F}' \subseteq L'$. Since $F \not= L$, there is some $\alpha \in L\setminus F$. Since $L$ is an algebraic extension of $K$, there is some irreducible $g \in K[t]$ such that $\deg g > 0$ and $g(\alpha) = 0$.
+  Finally, we have to prove that $F = L$, and that $\psi(L) = L'$. Suppose $F \not= L$. Then we attempt to produce a larger $\tilde{F}$ and a $K$-isomorphism $\tilde{F} \to \tilde{F}' \subseteq L'$. Since $F \not= L$, there is some $\alpha \in L\setminus F$. Since $L$ is an algebraic extension of $K$, there is some irreducible $g \in F[t]$ such that $\deg g > 0$ and $g(\alpha) = 0$.
 
-  Now there is an isomorphism $F[t]/\bra g\ket \to F(\alpha)$ defined by $\bar{t} \mapsto \alpha$. The isomorphism $\psi: F \to F'$ then extends to an isomorphism $\mu: F[t] \to F'[t]$ and thus to $\F[t]/\bra g\ket \to F'[t]/\bra \mu(g) \ket$. Then if $\alpha'$ is a root of $\mu(g)$, then we have $F'[t]//\bra \mu(g)\ket \cong F'(\alpha')$. So this gives an isomorphism $F(\alpha) \to F(\alpha')$. This contradicts the maximality of $\phi$.
+  Now there is an isomorphism $F[t]/\bra g\ket \to F(\alpha)$ defined by $\bar{t} \mapsto \alpha$. The isomorphism $\psi: F \to F'$ then extends to an isomorphism $\mu: F[t] \to F'[t]$ and thus to $\F[t]/\bra g\ket \to F'[t]/\bra \mu(g) \ket$. Then if $\alpha'$ is a root of $\mu(g)$, then we have $F'[t]//\bra \mu(g)\ket \cong F'(\alpha')$. So this gives an isomorphism $F(\alpha) \to F(\alpha')$. This contradicts the maximality of $\psi$.
 
   By doing the argument the other way round, we must have $\psi(L) = L'$. So done.
 \end{proof}
@@ -861,7 +861,7 @@ At first, the definition of separability might seem absurd --- surely every poly
 \begin{defi}[Separable polynomial]
   Let $K$ be a field, $f\in K[t]$ non-zero, and $L$ a splitting field of $f$. For an irreducible $f$, we say it is \emph{separable} if $f$ has no repeated roots, i.e.\ $|\Root_f(L)| = \deg f$. For a general polynomial $f$, we say it is \emph{separable} if all its irreducible factors in $K[t]$ are separable.
 \end{defi}
-It should be obvious from definition that if $P$ is separable and $Q \mid P$, then $Q$ is also separable.
+It should be obvious from the definition that if $P$ is separable and $Q \mid P$, then $Q$ is also separable.
 
 Note that some people instead define a separable polynomial to be one with no repeated roots, so $(x - 2)^2$ over $\Q$ would not be separable under this definition.
 
@@ -871,7 +871,7 @@ Note that some people instead define a separable polynomial to be one with no re
 This is, however, not a very interesting example. To get to more interesting examples, we need even more preparation.
 
 \begin{defi}[Formal derivative]
-  Let $K$ be a field, $f \in K[t]$. \emph{(Formal) differentiation} the $K$-linear map $K[t] \to K[t]$ defined by $t^n \mapsto n t^{n - 1}$.
+  Let $K$ be a field, $f \in K[t]$. \emph{(Formal) differentiation} is the $K$-linear map $K[t] \to K[t]$ defined by $t^n \mapsto n t^{n - 1}$, $n \geq 1$, $c \mapsto 0$ for $c \in K$.
 
   The image of a polynomial $f$ is the \emph{derivative} of $f$, written $f'$.
 \end{defi}
@@ -936,7 +936,7 @@ Using this, it should be easy to find lots of examples of separable polynomials.
 \begin{defi}[Separable elements and extensions]
   Let $K \subseteq L$ be an algebraic field extension. We say $\alpha \in L$ is \emph{separable} over $K$ if $P_\alpha$ is separable, where $P_\alpha$ is the minimal polynomial of $\alpha$ over $K$.
 
-  We say $L$ is \emph{separable} over $K$ (or $L\subseteq L$ is \emph{separable}) if all $\alpha \in L$ are separable.
+  We say $L$ is \emph{separable} over $K$ (or $K\subseteq L$ is \emph{separable}) if all $\alpha \in L$ are separable.
 \end{defi}
 
 \begin{eg}\leavevmode
@@ -956,7 +956,7 @@ As mentioned in the beginning, separable extensions are nice, or at least non-we
   \]
   So since $\alpha^3 \in \Q(\alpha)$, we know that $\sqrt{2} \in \Q(\alpha)$. So we also have $\sqrt{3} \in \Q(\alpha)$.
 \end{eg}
-In general, it is not easy to find an $\alpha$ that works, but we our later result will show that such an $\alpha$ exists.
+In general, it is not easy to find an $\alpha$ that works, but our later results will show that such an $\alpha$ exists.
 
 Before that, we will prove some results about the $K$-homomorphisms.
 \begin{lemma}
@@ -980,7 +980,7 @@ Note that if $P_\alpha$ is the minimal polynomial of $\alpha$ over $F$, then $[F
   \[
     \Root_q(E) \longleftrightarrow \Hom_M(M[t]/\bra q \ket, E).
   \]
-  What we really want to show is the correspondence between $\Root_q(E)$ and the $K$-homomorphisms $F[t]/\bra P_\alpha\ket \to E$ that restrict to $\psi$ on $F$. Let's ignore the quotient for the moment and think: what does it mean for $\phi \in \Hom_K(F[t], E)$ to restrict to $\psi$ on $F$? We know that any $\phi \in \Hom_L(F[t], E)$ is uniquely determined by the values it takes on $F$ and $t$. Hence if $\phi|_F = \psi$, then our $\phi$ must send $F$ to $\psi(F) = M$, and can send $t$ to anything in $E$. This corresponds exactly to the $M$-homomorphisms $M[t] \to E$ that does nothing to $M$ and sends $t$ to that ``anything'' in $E$.
+  What we really want to show is the correspondence between $\Root_q(E)$ and the $K$-homomorphisms $F[t]/\bra P_\alpha\ket \to E$ that restrict to $\psi$ on $F$. Let's ignore the quotient for the moment and think: what does it mean for $\phi \in \Hom_K(F[t], E)$ to restrict to $\psi$ on $F$? We know that any $\phi \in \Hom_F(F[t], E)$ is uniquely determined by the values it takes on $F$ and $t$. Hence if $\phi|_F = \psi$, then our $\phi$ must send $F$ to $\psi(F) = M$, and can send $t$ to anything in $E$. This corresponds exactly to the $M$-homomorphisms $M[t] \to E$ that does nothing to $M$ and sends $t$ to that ``anything'' in $E$.
 
   The situation does not change when we put back the quotient. Changing from $M[t] \to E$ to $M[t]/\bra q\ket \to E$ just requires that the image of $t$ must be a root of $q$. On the other hand, using $F[t]/\bra P_\alpha\ket$ instead of $F[t]$ requires that $\phi(P_\alpha(t)) = 0$. But we know that $\phi(P_\alpha) = \psi(P_\alpha) = q$. So this just requires $q(t) = 0$ as well. So we get the one-to-one correspondence
   \[
@@ -1022,7 +1022,7 @@ Note that if $P_\alpha$ is the minimal polynomial of $\alpha$ over $F$, then $[F
       \end{align*}
     \item
     \begin{enumerate}
-      \item If equality holds in (i), then every inequality in the proof above has to an equality. Instead of directly decomposing $K \subseteq L$ as a chain above, we can first decompose $K \subseteq F$, then $F \subseteq L$, then join them together. Then we can assume that $F = F_i$ for some $i$. Then we get
+      \item If equality holds in (i), then every inequality in the proof above has to be an equality. Instead of directly decomposing $K \subseteq L$ as a chain above, we can first decompose $K \subseteq F$, then $F \subseteq L$, then join them together. Then we can assume that $F = F_i$ for some $i$. Then we get
         \[
           |\Hom_K(L, E)| = [L:F] |\Hom_K(F, E)| = [L:K].
         \]
@@ -1218,7 +1218,7 @@ In fact, we have
 \end{proof}
 
 \subsection{Normal extensions}
-We are almost there. We will now move on to study normal extensions. Normal extensions are \emph{very} closely related to Galois extensions. In fact, we will show that if an extension is normal and separable, then it is Galois. The advantage of introducing the idea of normality is that normality is a much more concrete definition to work with. It is much easier to check if an extension is normal than to check if $|\Aut_K(L)| = [K:L]$. In particular, we will shortly prove that the splitting field of any polynomial is normal.
+We are almost there. We will now move on to study normal extensions. Normal extensions are \emph{very} closely related to Galois extensions. In fact, we will show that if an extension is normal and separable, then it is Galois. The advantage of introducing the idea of normality is that normality is a much more concrete definition to work with. It is much easier to check if an extension is normal than to check if $|\Aut_K(L)| = [L:K]$. In particular, we will shortly prove that the splitting field of any polynomial is normal.
 
 This is an important result, since we are going to use the splitting field to study the roots of a polynomial, and since we mostly care about polynomials over $\Q$, this means all these splitting fields are automatically Galois extensions of $\Q$.
 
@@ -1299,7 +1299,7 @@ This allows us to identify normal extensions easily. The following theorem then 
       So $P_\alpha$ splits over $L$.
     \item (ii) $\Rightarrow$ (iii): Just pick $\alpha_1, \cdots, \alpha_n$ such that $L = K(\alpha_1, \cdots, \alpha_n)$. Then these polynomials are separable since the extension is separable, and they split since $L/K$ is normal. In fact, by the primitive element theorem, we can pick these such that $n = 1$.
 
-    \item (iii) $\Rightarrow$ (i): Since $L = K(\alpha_1, \cdots, \alpha_n)$ and the minimal polynomials $P_{\alpha_i}$ over $K$ are separable, by a previous theorem, there are some extension $E$ of $K$ such that
+    \item (iii) $\Rightarrow$ (i): Since $L = K(\alpha_1, \cdots, \alpha_n)$ and the minimal polynomials $P_{\alpha_i}$ over $K$ are separable, by a previous theorem, there is some extension $E$ of $K$ such that
       \[
         |\Hom_K(L, E)| = [L:K].
       \]
@@ -1351,7 +1351,7 @@ Note that we are not assuming that $L/K$ is Galois, or even finite!
   \]
   where $\alpha_i$ are distinct. Here we are allowing for the possibility that $\phi(\alpha) = \psi(\alpha)$ for some distinct $\phi, \psi \in H$.
 
-  By definition, we clearly have $n < |H|$. Let
+  By definition, we clearly have $n \leq |H|$. Let
   \[
     f = \prod_1^n (t - \alpha_i) \in L[t].
   \]
